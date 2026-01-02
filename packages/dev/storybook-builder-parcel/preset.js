@@ -17,7 +17,7 @@ exports.start = async function ({ options, router }) {
     }
 
     let proxy = createProxyMiddleware({
-      target: "http://localhost:3000/",
+      target: "http://localhost:9005/",
       selfHandleResponse: true,
       logLevel: "warn",
       onProxyRes(proxyRes, req, res) {
@@ -88,12 +88,12 @@ async function createParcel(options, isDev = false) {
     mode: isDev ? "development" : "production",
     serveOptions: isDev
       ? {
-          port: 3000,
+          port: 9005,
         }
       : null,
     hmrOptions: isDev
       ? {
-          port: 3001,
+          port: 9006,
         }
       : null,
     additionalReporters: [
